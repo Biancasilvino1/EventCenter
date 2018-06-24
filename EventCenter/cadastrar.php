@@ -8,8 +8,13 @@ if($btnCadUsuario){
 	//var_dump($dados);
 	$dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
 	
-	$result_usuario = "INSERT INTO usuarios (nome, email, usuario, senha) VALUES (
+	$result_usuario = "INSERT INTO clientes (nome, cpf, telefone, endereco, agencia, conta_corrente, email, usuario, senha) VALUES (
 					'" .$dados['nome']. "',
+					'" .$dados['cpf']. "',
+					'" .$dados['telefone']. "',
+					'" .$dados['endereco']. "',
+					'" .$dados['agencia']. "',
+					'" .$dados['conta_corrente']. "',
 					'" .$dados['email']. "',
 					'" .$dados['usuario']. "',
 					'" .$dados['senha']. "'
@@ -23,37 +28,62 @@ if($btnCadUsuario){
 	}
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
-		<title>Event Center - Cadastrar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="css/bootstrap" >
+		<link rel="stylesheet" href="css/signin">
+		<title>EventCenter-Cadastrar </title>
 	</head>
-	<body>
-		<h2>Cadastro</h2>
-		<?php
-			if(isset($_SESSION['msg'])){
-				echo $_SESSION['msg'];
-				unset($_SESSION['msg']);
-			}
-		?>
-		<form method="POST" action="">
-			<label>Nome</label>
-			<input type="text" name="nome" placeholder="Digite o nome e o sobrenome"><br><br>
-			
-			<label>E-mail</label>
-			<input type="text" name="email" placeholder="Digite o seu e-mail"><br><br>
-			
-			<label>Usuário</label>
-			<input type="text" name="usuario" placeholder="Digite o usuário"><br><br>
-			
-			<label>Senha</label>
-			<input type="password" name="senha" placeholder="Digite a senha"><br><br>
-			
-			<input type="submit" name="btnCadUsuario" value="Cadastrar"><br><br>
-			
-			Lembrou? <a href="login.php">Clique aqui</a> para logar
-		
-		</form>
-	</body>
+		<body>
+				
+			<?php
+				if(isset($_SESSION['msg'])){
+					echo $_SESSION['msg'];
+					unset($_SESSION['msg']);
+				}
+			?>
+			<form method="POST" action="" class="form-signin" >
+				<h2>Ficha de Cadastro </h2>
+				
+				<!--label>Nome</label-->
+				<input type="text" name="nome" placeholder="Digite o nome e o sobrenome" class="form-control" required autofocus><br>
+				
+				<!--label>Cpf</label-->
+				<input type="text" name="cpf" placeholder="Digite o cpf" class="form-control" required autofocus><br>
+				
+				<!--label>Telefone</label-->
+				<input type="text" name="telefone" placeholder="Digite o telefone" class="form-control" required autofocus><br>
+				
+				<!--label>Endereço</label-->
+				<input type="text" class="form-control" name="endereco" placeholder="Digite o endereço" required autofocus><br>
+				
+				<!--label>Agencia</label-->
+				<input type="text" name="agencia" placeholder="Numero da agência" class="form-control" required autofocus><br>
+				
+				<!--label>Conta Corrente</label-->
+				<input type="text" name="conta_corrente" placeholder="Digite a conta corrente" class="form-control" required autofocus><br>
+				
+				<!-- label>E-mail</label -->
+				<input type="text" name="email" placeholder="Digite o seu e-mail" class="form-control" required autofocus><br>
+				
+				<!--label>Usuario</label-->
+				<input type="text" name="usuario" placeholder="Digite seu usuario" class="form-control" required autofocus><br>
+				
+				<!--label>Senha</label-->
+				<input type="text" name="senha" placeholder="Digite sua senha" class="form-control" required autofocus><br>						
+				
+				<input class="btn btn-lg btn-primary btn-block" type="submit" name="btnCadUsuario" value="Cadastrar"><br>
+				
+				Voltar para a área de <a href="login.php">Login</a>
+				
+			</form>
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+			<script src="js/bootstrap.min"></script>
+				
+		</body>	
 </html>
