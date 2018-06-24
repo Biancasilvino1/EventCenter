@@ -11,8 +11,11 @@ session_start();
 		<link rel="stylesheet" href="css/bootstrap" >
 		<link rel="stylesheet" href="css/signin">
 	</head>
-	<body>
-		<?php
+	<body class="form-signin">
+		<form method="POST" action="valida.php">
+			<h1>Área de Login</h1>
+			<h2 class="h3 mb-3 font-weight-normal">Entre com usuario e senha</h2>
+			<?php
 			if(isset($_SESSION['msg'])){
 				echo $_SESSION['msg'];
 				unset($_SESSION['msg']);
@@ -21,10 +24,7 @@ session_start();
 				echo $_SESSION['msgcad'];
 				unset($_SESSION['msgcad']);
 			}
-		?>
-		<form method="POST" action="valida.php" class="form-signin">
-			<h1>Área de Login</h1>
-			<h2 class="h3 mb-3 font-weight-normal">Entre com usuario e senha</h2>
+			?>
 			<!--label>Usuário</label-->
 			<input type="text" name="usuario" placeholder="Digite o seu usuário" class="form-control" required autofocus><br>
 			
