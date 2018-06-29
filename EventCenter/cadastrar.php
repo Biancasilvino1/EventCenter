@@ -8,20 +8,18 @@ if($btnCadUsuario){
 	//var_dump($dados);
 	$dados['senha'] = password_hash($dados['senha'], PASSWORD_DEFAULT);
 	
-	$result_usuario = "INSERT INTO clientes (nome, cpf, telefone, endereco, agencia, conta_corrente, email, usuario, senha) VALUES (
+	$result_usuario = "INSERT INTO clientes (nome, cpf, telefone, endereco, email, usuario, senha) VALUES (
 					'" .$dados['nome']. "',
 					'" .$dados['cpf']. "',
 					'" .$dados['telefone']. "',
 					'" .$dados['endereco']. "',
-					'" .$dados['agencia']. "',
-					'" .$dados['conta_corrente']. "',
 					'" .$dados['email']. "',
 					'" .$dados['usuario']. "',
 					'" .$dados['senha']. "'
 					)";
 	$resultado_usario = mysqli_query($conn, $result_usuario);
 	if(mysqli_insert_id($conn)){
-		$_SESSION['msgcad'] = "Usuário cadastrado com sucesso";
+		$_SESSION['msgcad'] = "<p style='color: blue;'>Usuário cadastrado com sucesso </p>";
 		header("Location: login.php");
 	}else{
 		$_SESSION['msg'] = "Erro ao cadastrar o usuário";
@@ -34,8 +32,8 @@ if($btnCadUsuario){
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="css/bootstrap" >
-		<link rel="stylesheet" href="css/signin">
+		<link rel="stylesheet" href="css/bootstrap.css" >
+		<link rel="stylesheet" href="css/signin.css">
 		<title>EventCenter-Cadastrar </title>
 	</head>
 		<body>
@@ -60,12 +58,6 @@ if($btnCadUsuario){
 				
 				<!--label>Endereço</label-->
 				<input type="text" class="form-control" name="endereco" placeholder="Digite o endereço" required autofocus><br>
-				
-				<!--label>Agencia</label-->
-				<input type="text" name="agencia" placeholder="Numero da agência" class="form-control" required autofocus><br>
-				
-				<!--label>Conta Corrente</label-->
-				<input type="text" name="conta_corrente" placeholder="Digite a conta corrente" class="form-control" required autofocus><br>
 				
 				<!-- label>E-mail</label -->
 				<input type="text" name="email" placeholder="Digite o seu e-mail" class="form-control" required autofocus><br>
