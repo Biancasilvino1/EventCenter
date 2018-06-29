@@ -10,7 +10,7 @@ if($btnLogin){
 		//Gerar a senha criptografa
 		//echo password_hash($senha, PASSWORD_DEFAULT);
 		//Pesquisar o usuário no BD
-		$result_usuario = "SELECT id, nome, cpf, telefone, endereco, agencia, conta_corrente, email, senha FROM clientes WHERE usuario='$usuario' LIMIT 1";
+		$result_usuario = "SELECT id, nome, cpf, telefone, endereco, email, senha FROM clientes WHERE usuario='$usuario' LIMIT 1";
 		$resultado_usuario = mysqli_query($conn, $result_usuario);
 		if($resultado_usuario){
 			$row_usuario = mysqli_fetch_assoc($resultado_usuario);
@@ -20,8 +20,6 @@ if($btnLogin){
 				$_SESSION['cpf'] = $row_usuario['cpf'];
 				$_SESSION['telefone'] = $row_usuario['telefone'];
 				$_SESSION['endereco'] = $row_usuario['endereco'];
-				$_SESSION['agencia'] = $row_usuario['agencia'];
-				$_SESSION['conta_corrente'] = $row_usuario['conta_corrente'];
 				$_SESSION['email'] = $row_usuario['email'];
 				$_SESSION['senha'] = $row_usuario['senha'];
 				header("Location: administrativo.php");
