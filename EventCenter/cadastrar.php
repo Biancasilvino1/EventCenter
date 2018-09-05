@@ -35,6 +35,14 @@ if($btnCadUsuario){
 		<link rel="stylesheet" href="css/bootstrap.css" >
 		<link rel="stylesheet" href="css/signin.css">
 		<title>EventCenter-Cadastrar </title>
+		<style>
+			body {
+				background-image: url(02.jpg);
+				background-attachment: fixed;
+				background-repeat: no-repeat;
+				background-size:100%;
+			}
+		</style>
 	</head>
 		<body>
 				
@@ -70,7 +78,7 @@ if($btnCadUsuario){
 				
 				<input class="btn btn-lg btn-primary btn-block" type="submit" name="btnCadUsuario" value="Cadastrar"><br>
 				
-				Voltar para a área de <a href="login.php">Login</a>
+				Voltar para a área de <a href="index.php">Login</a>
 				
 			</form>
 			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
