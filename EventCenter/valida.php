@@ -30,9 +30,9 @@ if($btnLogin){
 		}
 	}else{
 		$_SESSION['msg'] = "Login e senha incorreto!";
-		header("Location: login.php");
+		header("Location: index.php");
 	}
 }else{
 	$_SESSION['msg'] = "Página não encontrada";
-	header("Location: login.php");
+	header("Location: index.php");
 }
