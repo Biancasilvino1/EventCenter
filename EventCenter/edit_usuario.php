@@ -52,7 +52,6 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 			
 			<input type="submit" value="Editar" class="btn btn-lg btn-primary btn-block">
 			<a href="cadastrar.php">Cadastrar</a><br>
-			<a href="listar.php">Listar</a><br>
 		</form>
 	</body>
 </html>
