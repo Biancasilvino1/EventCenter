@@ -9,12 +9,21 @@ include_once("conexao.php");
 		<meta charset="utf-8">
 		<title>EventCenter-Listar</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="css/bootstrap" >
-		<link rel="stylesheet" href="css/signin">
+		<link rel="stylesheet" href="css/bootstrap.css" >
+		<link rel="stylesheet" href="css/signin.css">
 	</head>
 	
 	<body>
 		<form method="POST">
+			<?php
+				if(!empty($_SESSION['id'])){
+				echo "<a href='sair.php'>Sair</a><br>";
+	
+			}else{
+				$_SESSION['msg'] = "Área restrita";
+				header("Location: index.php");	
+			}
+			?>
 			<h1>Lista de Usuários</h1>
 			<?php
 				if(isset($_SESSION['msg'])){
